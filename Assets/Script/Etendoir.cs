@@ -48,7 +48,7 @@ public class Etendoir : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (other.gameObject.CompareTag("Herbe"))
+        if (other.gameObject.name == "Herbe")
         {
             //Start a count down
             count_down = true;
@@ -62,15 +62,12 @@ public class Etendoir : MonoBehaviour
     //outcoming collision management
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag != null)
+        //Check for a match with the specified name on any GameObject that collides with your GameObject
+        if (other.gameObject.name == "Herbe")
         {
-            //Check for a match with the specified name on any GameObject that collides with your GameObject
-            if (other.gameObject.CompareTag("Herbe"))
-            {
-                //If the grass is no longer on the rack the count_down restart
-                count_down = false;
-                count_down_time = 10.0f;
-            }
+            //If the grass is no longer on the rack the count_down restart
+            count_down = false;
+            count_down_time = 10.0f;
         }
     }
 }
