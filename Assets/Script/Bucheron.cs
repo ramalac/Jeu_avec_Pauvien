@@ -17,19 +17,19 @@ public class Bucheron : MonoBehaviour
     {
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Wood"))
+        if (other.gameObject.CompareTag("Wood"))
         {
             nbCout++;
-        }
-        if (nbCout == 3)
-        {
-            nbCout = 0;
-            Vector3 vector3 = collision.gameObject.transform.position;
-            Destroy(collision.gameObject);
-            GameObject hs = Instantiate(souche, this.transform.position, Quaternion.identity);
-            GameObject hs1 = Instantiate(planche, vector3, Quaternion.identity);
+            if (nbCout == 3)
+            {
+                nbCout = 0;
+                Vector3 vector3 = other.gameObject.transform.position;
+                Destroy(other.gameObject);
+                GameObject hs = Instantiate(souche, vector3, Quaternion.identity);
+                GameObject hs1 = Instantiate(planche, vector3, Quaternion.identity);
+            }
         }
     }
 }
