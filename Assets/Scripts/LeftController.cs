@@ -5,7 +5,7 @@ using UnityEngine;
 public class LeftController : MonoBehaviour
 {
     private Collider currentcollider = null;
-    private GameObject holdingObject = null;
+    //private GameObject holdingObject = null;
     private GameObject grabPosition = null;
     public Transform hand;
 
@@ -28,15 +28,18 @@ public class LeftController : MonoBehaviour
         {
             if (currentcollider.name == "GrabpointAxe")
             {
-                GameObject axe = GameObject.Find("AXE");
+                //GameObject axe = GameObject.Find("AXE");
                 GameObject grabpoint = GameObject.Find("GrabpointAxe");
-                holdingObject = axe;
+                //holdingObject = axe;
                 grabPosition = grabpoint;
-                Vector3 offset = hand.position - grabPosition.transform.position;
-                axe.transform.parent = hand.transform;
-                axe.transform.localPosition += offset;
-                axe.GetComponentInChildren<Rigidbody>().useGravity = false;
-                axe.GetComponentInChildren<MeshCollider>().enabled = false;
+                //axe.transform.parent = hand.transform;
+                //Vector3 offset = hand.position - grabPosition.transform.position;
+                //axe.transform.localPosition = Vector3.zero;
+                grabpoint.transform.parent = hand.transform;
+                grabpoint.transform.localPosition = new Vector3(0.06f,0,0.081f);
+                grabPosition.transform.localRotation = Quaternion.Euler(-70.1f, -166.5f, 2.228f);
+                grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponentInChildren<MeshCollider>().enabled = false;
             }
         }
     }
@@ -44,23 +47,32 @@ public class LeftController : MonoBehaviour
     public void DropObject()
     {
         Debug.Log("Je veux lacher !!!" + currentcollider);
-        if (holdingObject != null)
+        if (grabPosition != null)
         {
-            holdingObject.transform.parent = null;
-            holdingObject.GetComponentInChildren<Rigidbody>().useGravity = true;
-            holdingObject.GetComponentInChildren<MeshCollider>().enabled = true;
-            holdingObject = null;
+            grabPosition.transform.parent = null;
+            grabPosition.GetComponentInChildren<Rigidbody>().useGravity = true;
+            grabPosition.GetComponentInChildren<MeshCollider>().enabled = true;
+            //holdingObject = null;
             grabPosition = null;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        currentcollider = other;
+        if (other.name == "GrabpointAxe")
+        {
+            currentcollider = other;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        currentcollider = null;
+        if (other)
+        {
+            if (other.name == currentcollider.name)
+            {
+                currentcollider = null;
+            }
+        }
     }
 }
