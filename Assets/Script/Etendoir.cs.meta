@@ -4,8 +4,7 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - HerbeSeche: {fileID: 8852900142876022206, guid: 278c78c795a3fa944b2d11796cd640e0,
-      type: 3}
+  - HerbeSeche: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

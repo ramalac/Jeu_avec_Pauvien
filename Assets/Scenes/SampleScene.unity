@@ -5530,7 +5530,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1584f8bd0bcd3224bb30d8161b35e49c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HerbeSeche: {fileID: 0}
+  HerbeSeche: {fileID: 8852900142876022206, guid: 278c78c795a3fa944b2d11796cd640e0,
+    type: 3}
   count_down_time: 10
 --- !u!136 &1425170419
 CapsuleCollider:
@@ -5543,9 +5544,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 1.321453
-  m_Height: 2.1647341
+  m_Height: 2.6429067
   m_Direction: 1
-  m_Center: {x: -0.005673708, y: 1.0823668, z: 0.032418326}
+  m_Center: {x: -0.005673766, y: 1.082367, z: 0.03241837}
 --- !u!54 &1425170420
 Rigidbody:
   m_ObjectHideFlags: 0
