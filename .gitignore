@@ -12,6 +12,7 @@
 [Uu]serSettings/Layouts/default-2021.dwlt
 [As]ssets/SteamVR
 [Aa]ssets/SteamVR_Resources
+unityProject.vrmanifest
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
