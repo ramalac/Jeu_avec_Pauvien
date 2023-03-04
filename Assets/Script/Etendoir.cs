@@ -27,10 +27,11 @@ public class Etendoir : MonoBehaviour
             {
                 count_down_time -= Time.deltaTime;
             }
-            else
+            else if(herbe != null)
             {
                 Vector3 myVector3 = herbe.transform.position;
                 Destroy(herbe);
+                herbe = null;
 
                 GameObject herbeSechee = Instantiate(HerbeSeche, myVector3, Quaternion.identity);
             }
@@ -46,6 +47,7 @@ public class Etendoir : MonoBehaviour
             count_down = true;
             initial_value = count_down_time;
             herbe = other.gameObject;
+            herbe.GetComponent<Rigidbody>().isKinematic = true;
         }
     }
 }
