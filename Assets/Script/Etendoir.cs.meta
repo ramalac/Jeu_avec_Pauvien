@@ -3,7 +3,8 @@ guid: 1584f8bd0bcd3224bb30d8161b35e49c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - HerbeSeche: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
