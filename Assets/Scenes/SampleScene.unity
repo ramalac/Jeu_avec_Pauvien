@@ -800,6 +800,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 307234475}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &205916084 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1733909988577898, guid: e88b7bb02ae149940a5a0cddf34fe370,
+    type: 3}
+  m_PrefabInstance: {fileID: 483484945}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &231873987
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1691,7 +1697,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1733909988577898, guid: e88b7bb02ae149940a5a0cddf34fe370, type: 3}
       propertyPath: m_Name
-      value: rpgpp_lt_grass_small_01b (4)
+      value: Herbe
+      objectReference: {fileID: 0}
+    - target: {fileID: 1733909988577898, guid: e88b7bb02ae149940a5a0cddf34fe370, type: 3}
+      propertyPath: m_TagString
+      value: Herbe
       objectReference: {fileID: 0}
     - target: {fileID: 4931211907768612, guid: e88b7bb02ae149940a5a0cddf34fe370, type: 3}
       propertyPath: m_RootOrder
@@ -1745,6 +1755,36 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 483484945}
   m_PrefabAsset: {fileID: 0}
+--- !u!136 &483484949
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205916084}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.7372972
+  m_Height: 1.1755059
+  m_Direction: 1
+  m_Center: {x: -0.03026411, y: 0.58775294, z: 0.07367429}
+--- !u!54 &483484950
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205916084}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &498060862
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2030,6 +2070,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 531229120}
+  - component: {fileID: 531229121}
   m_Layer: 0
   m_Name: floor
   m_TagString: Untagged
@@ -2054,6 +2095,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &531229121
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531229119}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &541096545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5392,6 +5449,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1375418201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1419441117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1308977663007590, guid: 813f38ebf5eabe1429b83876fbaa47db,
+    type: 3}
+  m_PrefabInstance: {fileID: 1425170414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1425170414
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5455,6 +5518,50 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1425170414}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1425170416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419441117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1584f8bd0bcd3224bb30d8161b35e49c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HerbeSeche: {fileID: 0}
+  count_down_time: 10
+--- !u!136 &1425170419
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419441117}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.321453
+  m_Height: 2.1647341
+  m_Direction: 1
+  m_Center: {x: -0.005673708, y: 1.0823668, z: 0.032418326}
+--- !u!54 &1425170420
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1419441117}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1457774407
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Etendoir : MonoBehaviour
 {
-    public GameObject herbeSeche;
+    public GameObject HerbeSeche;
 
     public float count_down_time = 10.0f; //1 minute
     private bool count_down;
@@ -13,7 +13,6 @@ public class Etendoir : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Start");
         count_down = false;
     }
 
@@ -39,7 +38,7 @@ public class Etendoir : MonoBehaviour
                 herbe = null;
 
                 //We instantiate a new dried grass
-                GameObject hs = Instantiate(herbeSeche, myVector3, Quaternion.identity);
+                GameObject hs = Instantiate(HerbeSeche, myVector3, Quaternion.identity);
             }
         }
         
@@ -48,11 +47,9 @@ public class Etendoir : MonoBehaviour
     //incoming collision management
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision à détecter");
         //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (other.gameObject.tag == "Herbe")
+        if (other.gameObject.CompareTag("Herbe"))
         {
-            Debug.Log("Collision");
             //Start a count down
             count_down = true;
 
@@ -65,12 +62,15 @@ public class Etendoir : MonoBehaviour
     //outcoming collision management
     private void OnTriggerExit(Collider other)
     {
-        //Check for a match with the specified name on any GameObject that collides with your GameObject
-        if (other.gameObject.name == "Herbe")
+        if (other.gameObject.tag != null)
         {
-            //If the grass is no longer on the rack the count_down restart
-            count_down = false;
-            count_down_time = 10.0f;
+            //Check for a match with the specified name on any GameObject that collides with your GameObject
+            if (other.gameObject.CompareTag("Herbe"))
+            {
+                //If the grass is no longer on the rack the count_down restart
+                count_down = false;
+                count_down_time = 10.0f;
+            }
         }
     }
 }
