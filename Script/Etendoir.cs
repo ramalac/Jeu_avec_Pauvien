@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Etendoir : MonoBehaviour
 {
-    public GameObject HerbeSeche;
+    public GameObject herbeSeche;
 
     public float count_down_time = 10.0f; //1 minute
     private bool count_down;
@@ -38,7 +38,7 @@ public class Etendoir : MonoBehaviour
                 herbe = null;
 
                 //We instantiate a new dried grass
-                GameObject hs = Instantiate(HerbeSeche, myVector3, Quaternion.identity);
+                GameObject hs = Instantiate(herbeSeche, myVector3, Quaternion.identity);
             }
         }
         
