@@ -38,7 +38,7 @@ public class Etendoir : MonoBehaviour
                 herbe = null;
 
                 //We instantiate a new dried grass
-                GameObject herbeSechee = Instantiate(herbeSeche, myVector3, Quaternion.identity);
+                GameObject hs = Instantiate(herbeSeche, myVector3, Quaternion.identity);
             }
         }
         
@@ -66,6 +66,7 @@ public class Etendoir : MonoBehaviour
         if (other.gameObject.name == "Herbe")
         {
             //If the grass is no longer on the rack the count_down restart
+            count_down = false;
             count_down_time = 10.0f;
         }
     }
