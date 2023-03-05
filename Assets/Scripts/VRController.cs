@@ -92,7 +92,6 @@ public class VRController : MonoBehaviour
         // rotation with joystick
 
         float rotationy = RotateValue.axis.x * Time.deltaTime * RotateSpeed;
-        Debug.Log(rotationy);
         if (Mathf.Abs(rotationy) > 0.3)
         {
             transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + rotationy, transform.eulerAngles.z);

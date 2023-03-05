@@ -79,8 +79,8 @@ public class LeftController : MonoBehaviour
                 GameObject grabpoint = currentcollider.gameObject;
                 grabPosition = grabpoint;
                 grabpoint.transform.parent = hand.transform;
-                grabpoint.transform.localPosition = new Vector3(0,0,0);
-                grabpoint.transform.localRotation = Quaternion.Euler(0,0,0);
+                grabpoint.transform.localPosition = new Vector3(-0.001f,-0.03f,-0.017f);
+                grabpoint.transform.localRotation = Quaternion.Euler(67.845f,23.456f,15.595f);
                 grabpoint.GetComponent<Rigidbody>().useGravity = false;
                 grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
                 grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
@@ -111,7 +111,7 @@ public class LeftController : MonoBehaviour
         if (grabPosition != null)
         {
             grabPosition.transform.parent = null;
-            grabPosition.GetComponentInChildren<Rigidbody>().useGravity = true;
+            grabPosition.GetComponent<Rigidbody>().useGravity = true;
             grabPosition.GetComponentInChildren<MeshCollider>().isTrigger = false;
             grabPosition = null;
         }

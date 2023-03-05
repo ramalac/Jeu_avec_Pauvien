@@ -28,6 +28,7 @@ public class Bucheron : MonoBehaviour
                 Vector3 vector3 = other.gameObject.transform.position;
                 Destroy(other.gameObject);
                 GameObject hs = Instantiate(souche, vector3, Quaternion.identity);
+                vector3.y += 1;
                 GameObject hs1 = Instantiate(planche, vector3, Quaternion.identity);
             }
         }
