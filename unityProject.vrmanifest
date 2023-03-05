@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.jeu_avec_pauvien.exe",
+      "app_key": "application.generated.unity.myproject.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\ramal\\Documents\\game_jam_volcan\\Jeu_avec_Pauvien\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\pauli\\My project\\Jeu_avec_Pauvien\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "Jeu_avec_Pauvien [Testing]"
+          "name": "My project [Testing]"
         }
       }
     }
