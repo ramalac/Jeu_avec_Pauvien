@@ -93,9 +93,9 @@ public class VRController : MonoBehaviour
 
         float rotationy = RotateValue.axis.x * Time.deltaTime * RotateSpeed;
         Debug.Log(rotationy);
-        if (rotationy > 0.3)
+        if (Mathf.Abs(rotationy) > 0.3)
         {
-            PlayerCamera.transform.rotation = Quaternion.Euler(PlayerCamera.transform.eulerAngles.x, PlayerCamera.transform.eulerAngles.y + rotationy, PlayerCamera.transform.eulerAngles.z);
+            transform.rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + rotationy, transform.eulerAngles.z);
         }
     }
 
