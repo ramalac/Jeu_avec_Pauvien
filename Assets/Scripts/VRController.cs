@@ -8,7 +8,7 @@ public class VRController : MonoBehaviour
     public float Sensitivity = 0.1f;
     public float MaxSpeed = 1.0f;
     public float Gravity = 30.0f;
-    public float RotateIncrement = 40.0f;
+    public float RotateSpeed = 40.0f;
 
     public SteamVR_Action_Boolean RotatePress = null;
     public SteamVR_Action_Boolean MovePress = null;
@@ -88,6 +88,15 @@ public class VRController : MonoBehaviour
 
         // Apply
         Character.Move(movement * Time.deltaTime);
+
+        // rotation with joystick
+
+        float rotationy = RotateValue.axis.x * Time.deltaTime * RotateSpeed;
+        Debug.Log(rotationy);
+        if (rotationy > 0.3)
+        {
+            PlayerCamera.transform.rotation = Quaternion.Euler(PlayerCamera.transform.eulerAngles.x, PlayerCamera.transform.eulerAngles.y + rotationy, PlayerCamera.transform.eulerAngles.z);
+        }
     }
 
     private void HandleHeight()

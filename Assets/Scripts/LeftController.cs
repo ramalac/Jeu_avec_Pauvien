@@ -50,7 +50,7 @@ public class LeftController : MonoBehaviour
                 grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
             }
-            if (currentcollider.tag == "Wood")
+            if (currentcollider.tag == "Wood" || currentcollider.tag == "Plank")
             {
                 GameObject grabpoint = currentcollider.gameObject;
                 grabPosition = grabpoint;
@@ -62,7 +62,7 @@ public class LeftController : MonoBehaviour
                 grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
             }
-            if (currentcollider.name == "GrabpointBow")
+            if (currentcollider.tag == "Bow")
             {
                 GameObject grabpoint = currentcollider.gameObject;
                 grabPosition = grabpoint;
@@ -92,6 +92,22 @@ public class LeftController : MonoBehaviour
     public void DropObject()
     {
         Debug.Log("Je veux lacher !!!" + currentcollider);
+        if (currentcollider!=null && currentcollider.tag=="Bow")
+        {
+            GameObject Human = GameObject.Find("Root_M");
+            Debug.Log(Vector3.Distance(hand.position, Human.transform.position));
+            if (Vector3.Distance(hand.position, Human.transform.position) <= 1)
+            {
+                GameObject HumanHand = GameObject.Find("jointItemL");
+                grabPosition.transform.parent = HumanHand.transform;
+                grabPosition.transform.localPosition = new Vector3(0, 0, 0);
+                grabPosition.transform.localRotation = Quaternion.Euler(-4.156f, 266.77f, -0.307f);
+                grabPosition.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabPosition.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                GameObject.Find("HumanMale_Character_FREE").GetComponent<Animator>().SetBool("hasBow", true);
+                return;
+            }
+        }
         if (grabPosition != null)
         {
             grabPosition.transform.parent = null;
@@ -103,7 +119,7 @@ public class LeftController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "GrabpointAxe" || other.tag == "Herbe" || other.tag == "Yarn" || other.tag == "Wood" ||other.name== "GrabpointBow" ||other.tag=="Clipboard")
+        if (other.name == "GrabpointAxe" || other.tag == "Herbe" || other.tag == "Yarn" || other.tag == "Wood" ||other.tag== "Bow" ||other.tag=="Clipboard" || other.tag == "Plank")
         {
             currentcollider = other;
         }
