@@ -113,6 +113,14 @@ namespace Valve.VR
             }
         }
         
+        public virtual SteamVR_Action_Vector2 rotatecamera
+        {
+            get
+            {
+                return SteamVR_Actions.default_rotatecamera;
+            }
+        }
+        
         public virtual SteamVR_Action_Vibration Haptic
         {
             get

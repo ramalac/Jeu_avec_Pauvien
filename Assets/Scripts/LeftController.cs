@@ -23,22 +23,55 @@ public class LeftController : MonoBehaviour
 
     public void GrabObject()
     {
-        Debug.Log("Je veux grab !!!" + currentcollider.name);
+        Debug.Log("Je veux grab !!!" + currentcollider.tag);
         if (currentcollider)
         {
             if (currentcollider.name == "GrabpointAxe")
             {
-                //GameObject axe = GameObject.Find("AXE");
-                GameObject grabpoint = GameObject.Find("GrabpointAxe");
-                //holdingObject = axe;
+                GameObject grabpoint = currentcollider.gameObject;
                 grabPosition = grabpoint;
-                //axe.transform.parent = hand.transform;
-                //Vector3 offset = hand.position - grabPosition.transform.position;
-                //axe.transform.localPosition = Vector3.zero;
                 grabpoint.transform.parent = hand.transform;
-                grabpoint.transform.localPosition = new Vector3(0.06f, 0, 0.081f);
-                grabPosition.transform.localRotation = Quaternion.Euler(-70.1f, -166.5f, 2.228f);
+                grabpoint.transform.localPosition = new Vector3(-0.023f, 0.023f, 0.045f);
+                grabpoint.transform.localRotation = Quaternion.Euler(3.547f, -262.18f, 77.856f);
                 grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
+            }
+            if (currentcollider.tag == "Herbe")
+            {
+                GameObject grabpoint = currentcollider.gameObject;
+                grabPosition = grabpoint;
+                grabpoint.transform.parent = hand.transform;
+                grabpoint.transform.localPosition = new Vector3(0.008f, -0.024f, -0.075f);
+                grabpoint.transform.localRotation = Quaternion.Euler(81.836f, -89.157f, -96.862f);
+                grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
+            }
+            if (currentcollider.tag == "Wood")
+            {
+                GameObject grabpoint = currentcollider.gameObject;
+                grabPosition = grabpoint;
+                grabpoint.transform.parent = hand.transform;
+                grabpoint.transform.localPosition = new Vector3(0.011f,0.059f,-0.004f);
+                grabpoint.transform.localRotation = Quaternion.Euler(0,0,0);
+                grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
+            }
+            if (currentcollider.name == "GrabpointBow")
+            {
+                GameObject grabpoint = currentcollider.gameObject;
+                grabPosition = grabpoint;
+                grabpoint.transform.parent = hand.transform;
+                grabpoint.transform.localPosition = new Vector3(0.0242f,-0.00015f,-0.007f);
+                grabpoint.transform.localRotation = Quaternion.Euler(9.862f,105.74f,84.362f);
+                grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
             }
         }
@@ -52,14 +85,13 @@ public class LeftController : MonoBehaviour
             grabPosition.transform.parent = null;
             grabPosition.GetComponentInChildren<Rigidbody>().useGravity = true;
             grabPosition.GetComponentInChildren<MeshCollider>().isTrigger = false;
-            //holdingObject = null;
             grabPosition = null;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "GrabpointAxe")
+        if (other.name == "GrabpointAxe" || other.tag == "Herbe" || other.tag == "Wood" ||other.name== "GrabpointBow")
         {
             currentcollider = other;
         }
