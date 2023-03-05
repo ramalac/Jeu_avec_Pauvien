@@ -38,7 +38,7 @@ public class LeftController : MonoBehaviour
                 grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
             }
-            if (currentcollider.tag == "Herbe")
+            if (currentcollider.tag == "Herbe" || currentcollider.tag == "Yarn")
             {
                 GameObject grabpoint = currentcollider.gameObject;
                 grabPosition = grabpoint;
@@ -74,6 +74,18 @@ public class LeftController : MonoBehaviour
                 grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
                 grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
             }
+            if (currentcollider.tag == "Clipboard")
+            {
+                GameObject grabpoint = currentcollider.gameObject;
+                grabPosition = grabpoint;
+                grabpoint.transform.parent = hand.transform;
+                grabpoint.transform.localPosition = new Vector3(0,0,0);
+                grabpoint.transform.localRotation = Quaternion.Euler(0,0,0);
+                grabpoint.GetComponent<Rigidbody>().useGravity = false;
+                grabpoint.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                grabpoint.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+                grabpoint.GetComponentInChildren<MeshCollider>().isTrigger = true;
+            }
         }
     }
 
@@ -91,7 +103,7 @@ public class LeftController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "GrabpointAxe" || other.tag == "Herbe" || other.tag == "Wood" ||other.name== "GrabpointBow")
+        if (other.name == "GrabpointAxe" || other.tag == "Herbe" || other.tag == "Yarn" || other.tag == "Wood" ||other.name== "GrabpointBow" ||other.tag=="Clipboard")
         {
             currentcollider = other;
         }

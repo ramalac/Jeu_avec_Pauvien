@@ -41,7 +41,7 @@ public class tableCraft : MonoBehaviour
             Debug.Log(collision.gameObject.tag);
 
         //Check if this is a wooden board
-        if (collision.gameObject.CompareTag("WoodenBoard"))
+        if (collision.gameObject.CompareTag("Plank"))
         {
             //Check if is the top of the table
             if (collision.transform.position.y > transform.position.y)
